@@ -35,41 +35,61 @@ export async function updateSession(request: NextRequest) {
 
   // IMPORTANT: DO NOT REMOVE auth.getUser()
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+const {
+  data: { user },
+} = await supabase.auth.getUser();
 
-  if (!user && !request.nextUrl.pathname.startsWith("/signin")) {
-    // no user, potentially respond by redirecting the user to the login page
+if (request.nextUrl.pathname === "/") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/dashboard";
+    return NextResponse.redirect(url);
+}
+
+if (request.nextUrl.pathname === "/signin" && user) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/dashboard";
+    return NextResponse.redirect(url);
+}
+
+if (request.nextUrl.pathname === "/dashboard" && !user) {
     const url = request.nextUrl.clone();
     url.pathname = "/signin";
     return NextResponse.redirect(url);
-  }
+}
 
-  if (
-    user &&
-    (request.nextUrl.pathname.startsWith("/select") ||
-      request.nextUrl.pathname.startsWith("/dashboard"))
-  ) {
-    try {
-      const res = await fetch(
-        new URL("/api/subscription-status", request.url),
-        { headers: { cookie: request.headers.get("cookie") || "" } }
-      );
-      const { active } = await res.json();
 
-      if (!active) {
-        const url = request.nextUrl.clone();
-        url.pathname = "/subscribe";
-        return NextResponse.redirect(url);
-      }
-    } catch (error) {
-      console.error("Subscription check failed:", error);
-      const url = request.nextUrl.clone();
-      url.pathname = "/subscribe";
-      return NextResponse.redirect(url);
-    }
-  }
+
+//   if (!user && !request.nextUrl.pathname.startsWith("/signin")) {
+//     // no user, potentially respond by redirecting the user to the login page
+//     const url = request.nextUrl.clone();
+//     url.pathname = "/signin";
+//     return NextResponse.redirect(url);
+//   }
+
+//   if (
+//     user &&
+//     (request.nextUrl.pathname.startsWith("/select") ||
+//       request.nextUrl.pathname.startsWith("/dashboard"))
+//   ) {
+//     try {
+//       const res = await fetch(
+//         new URL("/api/subscription-status", request.url),
+//         { headers: { cookie: request.headers.get("cookie") || "" } }
+//       );
+//       const { active } = await res.json();
+
+//       if (!active) {
+//         const url = request.nextUrl.clone();
+//         url.pathname = "/subscribe";
+//         return NextResponse.redirect(url);
+//       }
+//     } catch (error) {
+//       console.error("Subscription check failed:", error);
+//       const url = request.nextUrl.clone();
+//       url.pathname = "/subscribe";
+//       return NextResponse.redirect(url);
+//     }
+//   }
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is.
   // If you're creating a new response object with NextResponse.next() make sure to:
