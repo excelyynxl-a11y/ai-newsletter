@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📰 AI Newsletter SaaS 💌
+A SaaS platform that allows users to receive AI-generated newsletters tailored to their interests and preferred frequency. Users can select newsletter genres, manage subscription frequency and receive automated emails powered by OpenAI GPT models.  
+---
 
-## Getting Started
+## 👾 Features
 
-First, run the development server:
+- **📝 Newsletter Customization**  
+  - Users can choose their preferred newsletter genres (e.g., Tech, Health, Finance, etc.)  
+  - Set frequency: Daily, Weekly, Biweekly  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **🔐 User Authentication**  
+  - Email authentication powered by [Supabase Auth](https://supabase.com/docs/guides/auth)  
+  - Automatic email verification upon account creation  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **🤖 AI-Generated Content**  
+  - Newsletters generated dynamically using OpenAI GPT models (ChatGPT API)  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **📫 Email Automation**  
+  - Email scheduling and sending powered by [EmailJS](https://www.emailjs.com/)  
+  - Integration with [Inngest](https://inngest.com/) to manage subscription status, pause, and resume newsletters  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **📰 Subscription Management**  
+  - Users can pause or resume newsletter subscriptions at any time  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🔨 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend:** Next.js 15, TailwindCSS 
+- **Backend:** Node.js API routes  
+- **Database & Auth:** Supabase  
+- **AI Integration:** OpenAI ChatGPT API for content generation  
+- **Email Service:** EmailJS  
+- **Workflow Automation:** Inngest  
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Live AI-Newsletter
+**Deployed on Vercel:** (COMING SOON!)
