@@ -6,7 +6,8 @@ import { createClient } from "@/lib/server";
 
 export default inngest.createFunction(
     {
-        id: "newsletter/scheduled", 
+        // id: "newsletter/scheduled", // works in development on localhost
+        id: "newsletter-scheduled", // try on deployed Vercel
         cancelOn: [
             {
                 event: "newsletter.schedule.deleted",
