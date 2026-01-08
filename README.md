@@ -9,15 +9,15 @@ A SaaS platform that allows users to receive AI-generated newsletters tailored t
   - Set frequency: Daily, Weekly, Biweekly  
 
 - **🔐 User Authentication**  
-  - Email authentication powered by [Supabase Auth](https://supabase.com/docs/guides/auth)  
+  - Email authentication powered by Supabase Auth
   - Automatic email verification upon account creation  
 
 - **🤖 AI-Generated Content**  
   - Newsletters generated dynamically using OpenAI GPT models (ChatGPT API)  
 
 - **📫 Email Automation**  
-  - Email scheduling and sending powered by [EmailJS](https://www.emailjs.com/)  
-  - Integration with [Inngest](https://inngest.com/) to manage subscription status, pause, and resume newsletters  
+  - Email scheduling and sending powered by EmailJS
+  - Integration with Inngest to manage subscription status, pause, and resume newsletters  
 
 - **📰 Subscription Management**  
   - Users can pause or resume newsletter subscriptions at any time  
@@ -35,4 +35,4 @@ A SaaS platform that allows users to receive AI-generated newsletters tailored t
 ---
 
 ## 🚀 Live AI-Newsletter
-**Deployed on Vercel:** (COMING SOON!)
+**Deployed on Vercel:** (https://ai-newsletter-chi.vercel.app)
